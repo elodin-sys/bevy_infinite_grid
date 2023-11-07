@@ -1,6 +1,6 @@
-#import bevy_pbr::mesh_functions mesh_position_local_to_clip
-#import bevy_pbr::mesh_types Mesh
-#import bevy_render::view View
+#import bevy_pbr::mesh_functions::mesh_position_local_to_clip
+#import bevy_pbr::mesh_types::Mesh
+#import bevy_render::view::View
 
 @group(0) @binding(0)
 var<uniform> view: View;
@@ -15,7 +15,7 @@ var<uniform> joint_matrices: SkinnedMesh;
 #endif
 
 // NOTE: Bindings must come before functions that use them!
-#import bevy_pbr::mesh_functions mesh_position_local_to_clip
+#import bevy_pbr::mesh_functions::mesh_position_local_to_clip
 
 struct Vertex {
     @location(0) position: vec3<f32>,

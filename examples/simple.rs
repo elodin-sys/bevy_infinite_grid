@@ -18,7 +18,7 @@ fn setup_system(
 ) {
     commands.spawn(InfiniteGridBundle {
         settings: InfiniteGridSettings {
-            // shadow_color: None,
+            shadow_color: None,
             ..default()
         },
         ..default()
