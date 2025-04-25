@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use bevy_infinite_grid::{InfiniteGridBundle, InfiniteGridPlugin};
+use bevy_infinite_grid::{InfiniteGridBundle, InfiniteGridPlugin, InfiniteGridSettings};
 use camera_controller::{CameraController, CameraControllerPlugin};
 
 fn main() {
@@ -24,12 +24,11 @@ fn setup_system(
         },
         Transform::from_xyz(0.0, 4.37, 14.77),
         CameraController::default(),
+        InfiniteGridSettings::default(),
     ));
-    
+
     commands.spawn((
-        DirectionalLight {
-            ..default()
-        },
+        DirectionalLight { ..default() },
         Transform::from_translation(Vec3::X * 15. + Vec3::Y * 20.).looking_at(Vec3::ZERO, Vec3::Y),
     ));
 
@@ -38,8 +37,8 @@ fn setup_system(
         Mesh3d(meshes.add(Cuboid::new(1.0, 1.0, 1.0))),
         MeshMaterial3d(standard_materials.add(StandardMaterial::default())),
         Transform::from_xyz(3.0, 4.0, 0.0)
-        .with_rotation(Quat::from_rotation_arc(Vec3::Y, Vec3::ONE.normalize()))
-        .with_scale(Vec3::splat(1.5)),
+            .with_rotation(Quat::from_rotation_arc(Vec3::Y, Vec3::ONE.normalize()))
+            .with_scale(Vec3::splat(1.5)),
     ));
 
     commands.spawn((
@@ -47,7 +46,6 @@ fn setup_system(
         MeshMaterial3d(standard_materials.add(StandardMaterial::default())),
         Transform::from_xyz(0.0, 2.0, 0.0),
     ));
-
 }
 
 // This is a simplified version of the camera controller used in bevy examples
